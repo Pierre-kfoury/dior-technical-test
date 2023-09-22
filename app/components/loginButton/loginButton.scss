@@ -1,0 +1,22 @@
+.Login-Button {
+  border-width: 1px;
+  justify-content: center;
+  width: 258px;
+  height: 64px;
+  color: #FFF;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1E1E1E 0%, #424242 100%);
+  font-size: 24px;
+  font-weight: 200;
+  line-height: normal;
+
+  &:hover {
+    background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
+    color: #000;
+    transform: scale(1.05);
+  }
+}
+
+.Button:hover .Button-icon {
+  transform: scale(1.05);
+}
