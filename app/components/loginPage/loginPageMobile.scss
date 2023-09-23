@@ -1,0 +1,32 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-0-mobile {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-1-mobile {
+    margin-left: 220px;
+    margin-top: 285px;
+}
+
+.section-2-1-mobile {
+    margin-left: 90px;
+}
+
+.section-2-2-mobile {
+    margin-left: 80px;
+}
+
+.section-3-mobile {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+

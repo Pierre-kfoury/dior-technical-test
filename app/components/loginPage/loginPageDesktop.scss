@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+}
+
+.section-0-desktop {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-1-desktop {
+    margin-left: 220px;
+    margin-top: 285px;
+}
+
+.section-2-1-desktop {
+    margin-left: 90px;
+}
+
+.section-2-2-desktop {
+    margin-left: 80px;
+}
+
+.section-3-desktop {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

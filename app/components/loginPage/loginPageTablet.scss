@@ -1,0 +1,30 @@
+.main {
+    display: flex;
+}
+
+.section-0-tablet {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-1-tablet {
+    margin-left: 100px;
+    margin-top: 285px;
+}
+
+.section-2-1-tablet {
+    margin-left: 290px;
+}
+
+.section-2-2-tablet {
+    margin-left: 280px;
+}
+
+.section-3-tablet {
+    position: absolute;
+    bottom: 400px;
+    right: 0;
+    z-index: -1;
+}
