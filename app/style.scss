@@ -1,7 +1,18 @@
-@import 'components/button/button.scss';
-@import 'components/loginButton/loginButton.scss';
-@import 'components/welcome/welcome.scss';
-@import 'components/input/input.scss';
-@import 'components/loginPage/loginPageDesktop.scss';
-@import 'components/loginPage/loginPageMobile.scss';
-@import 'components/loginPage/loginPageTablet.scss';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@import "components/button/button.scss";
+@import "components/loginButton/loginButton.scss";
+@import "components/welcome/welcome.scss";
+@import "components/input/input.scss";
+@import "components/loginPage/loginPageDesktop.scss";
+@import "components/loginPage/loginPageMobile.scss";
+@import "components/loginPage/loginPageTablet.scss";
+@import "components/headerTitle/headerTitle.scss";
+@import "components/catalog/catalog.scss";
+@import "components/headerCatalog/headerCatalog.scss";
+@import "components/filter/filter.scss";
+@import "components/carousel/carousel.scss";
+
+* {
+  font-family: Inter;
+}

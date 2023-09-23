@@ -1,0 +1,65 @@
+/* Common styles */
+.filter-button,
+.dropdown-list {
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.filter-button {
+  margin-left: 5px;
+
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid #020202;
+  padding-bottom: 5px;
+  background: none;
+  margin-bottom: 10px;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.filter-box {
+  position: absolute;
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  background: #fbfbfb;
+  padding: 20px;
+}
+
+.dropdown-list {
+  width: auto;
+
+  list-style-type: none;
+  margin-right: 55px;
+  align-content: baseline;
+}
+
+li > * {
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+li:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+// when clicking on element, underline it and bold it scss
+li:active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.dropdown {
+  // align image and button
+}

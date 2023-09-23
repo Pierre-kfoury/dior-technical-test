@@ -3,5 +3,13 @@ type Props = {
 };
 
 export function LoginButton({ title }: Props) {
-  return <button className="Login-Button">{title}</button>;
+  function handleClick() {
+    window.location.href = "/catalog";
+  }
+
+  return (
+    <button onClick={handleClick} className="Login-Button">
+      {title}
+    </button>
+  );
 }
