@@ -6,7 +6,7 @@ type MediaQueryType = "mobile" | "tablet" | "desktop";
 export function useMediaQuerrySSR() {
   const [mounted, setMounted] = useState(false);
 
-  const isMobile = useMediaQuery("(min-width: 390px) and (max-width: 390px)"); // Iphone 14
+  const isMobile = useMediaQuery("(min-width: 390px) and (max-width: 830px)"); // Iphone 14
   const isTablet = useMediaQuery("(min-width: 834px) and (max-width: 1194px)"); // Ipad Pro 11
   const isDesktop = useMediaQuery("(min-width: 1200px)"); // Desktop
 
