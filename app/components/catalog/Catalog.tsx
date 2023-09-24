@@ -1,31 +1,50 @@
 import "app/style.scss";
-
 import { Button } from "@/app/components/button/Button";
 import { HeaderCatalog } from "@/app/components/headerCatalog/HeaderCatalog";
 import { ShopIconComponent } from "@/app/icons/ShopIcon";
 import { Carousel } from "../carousel/Carousel";
+import { Card, CardProps } from "../card/Card";
 
-const CARDS = 10;
-const MAX_VISIBILITY = 3;
+const cardsContent: CardProps[] = [
+  {
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "19 000",
+    image: "/man-standing.png",
+    title: "MEN SHIRT",
+  },
+  {
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "3000",
+    image: "/woman-standing.png",
+    title: "LADY BAG",
+  },
+  {
+    description:
+      "Lorem ipsum lolo sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "100 000",
+    image: "/woman2-standing.png",
+    title: "DIOR JEWELRY",
+  },
+];
 
 export default function Catalog() {
   return (
     <div className="catalog-container">
       <HeaderCatalog />
       <Carousel>
-        {[...new Array(CARDS)].map((_, i) => (
-          <Card key={i} title={"Card " + (i + 1)} content="Lorem ." />
+        {cardsContent.map((card, i) => (
+          <Card
+            description={card.description}
+            price={card.price}
+            image={card.image}
+            title={card.title}
+            key={i}
+          />
         ))}
       </Carousel>
-      {/* <mainCatalog /> */}
-      {/* <Button title="Add To CART" Icon={<ShopIconComponent />} /> */}
+      <Button title="ADD TO CART" Icon={<ShopIconComponent />} />
     </div>
   );
 }
-
-const Card = ({ title, content }: { title: string; content: string }) => (
-  <div className="card">
-    <h2>{title}</h2>
-    <p>{content}</p>
-  </div>
-);
