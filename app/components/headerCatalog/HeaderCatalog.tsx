@@ -12,12 +12,12 @@ export function HeaderCatalog() {
       <div className="header-catalog-title">
         <HeaderTitle />
       </div>
-      <div className="header-catalog-filters">
+      {/* <div className="header-catalog-filter">
         <Filter />
       </div>
-      <div className="header-catalog-filters-sort">
+      <div className="header-catalog-filter-sort">
         <Filter sort />
-      </div>
+      </div> */}
       <div className="header-catalog-basket">
         <BasketIcon />
       </div>

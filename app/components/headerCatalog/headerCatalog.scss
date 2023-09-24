@@ -1,8 +1,8 @@
 .header-catalog-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 100px;
+  align-items: center;
+  margin: 20px 20px 40px 40px;
 }
 
 .header-catalog-logo {
@@ -11,5 +11,10 @@
 .header-catalog-title {
 }
 
-.header-catalog-basket {
+.header-catalog-filter {
+  align-self: end;
+}
+
+.header-catalog-filter-sort {
+  align-self: end;
 }

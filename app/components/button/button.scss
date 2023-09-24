@@ -1,4 +1,5 @@
 .Button {
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +20,7 @@
     background: linear-gradient(180deg, #fff 0%, #fff 100%);
     color: #000;
     transform: scale(1.05);
+    cursor: pointer;
   }
 }
 

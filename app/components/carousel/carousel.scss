@@ -3,22 +3,26 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-container {
   position: absolute;
-  transition: all 0.7s ease-out;
+  transition: all 0.6s ease-out;
+  z-index: 1;
 }
 
 .nav {
   position: absolute;
-  z-index: 2;
   cursor: pointer;
   user-select: none;
   background: unset;
   border: unset;
 
   &.left {
+    z-index: 2;
     left: 20px;
     &:hover {
       transform: scale(1.2);
@@ -28,11 +32,13 @@
   }
 
   &.right {
+    z-index: 2;
+
     right: 20px;
-  }
-  &:hover {
-    transform: scale(1.2);
-    transition: all 0.4s ease-out;
-    opacity: 0.4;
+    &:hover {
+      transform: scale(1.2);
+      transition: all 0.4s ease-out;
+      opacity: 0.4;
+    }
   }
 }
