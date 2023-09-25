@@ -2,10 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
+  height: 100%;
   width: 100%;
   position: relative;
   overflow: hidden;
+  @media (min-width: 200px) and (max-width: 830px) {
+    scale: 0.8;
+  }
 }
 
 .card-container {
@@ -33,7 +36,6 @@
 
   &.right {
     z-index: 2;
-
     right: 20px;
     &:hover {
       transform: scale(1.2);

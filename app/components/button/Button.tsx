@@ -6,8 +6,8 @@ type Props = {
 export function Button({ title, Icon }: Props) {
   return (
     <button className="Button">
-      <div className="Button-title">{title}</div>
-      <div className="Button-icon">{Icon && Icon}</div>
+      {title}
+      <i className="Button-icon">{Icon && Icon}</i>
     </button>
   );
 }

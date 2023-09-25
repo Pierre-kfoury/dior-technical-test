@@ -1,19 +1,16 @@
 .Button {
-  align-self: center;
+  padding: 25px 140px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 586px;
-  height: 128px;
-  flex-shrink: 0;
+  justify-content: flex-end;
+  cursor: pointer;
+  align-self: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 46px;
   background: linear-gradient(180deg, #1e1e1e 0%, #424242 100%);
   color: #fff;
   font-size: 32px;
-  font-style: normal;
   font-weight: 300;
-  line-height: normal;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
 
   &:hover {
@@ -22,10 +19,16 @@
     transform: scale(1.05);
     cursor: pointer;
   }
+
+  @media (min-width: 200px) and (max-width: 830px) {
+    width: 384px;
+    height: 76px;
+    font-size: 22px;
+  }
 }
 
 .Button-icon {
-  padding: 48px;
+  padding-left: 20px;
   transition: transform 0.3s;
 }
 

@@ -4,6 +4,7 @@ import { HeaderCatalog } from "@/app/components/headerCatalog/HeaderCatalog";
 import { ShopIconComponent } from "@/app/icons/ShopIcon";
 import { Carousel } from "../carousel/Carousel";
 import { Card, CardProps } from "../card/Card";
+import { Drawer } from "../drawer/Drawer";
 
 const cardsContent: CardProps[] = [
   {
@@ -31,20 +32,23 @@ const cardsContent: CardProps[] = [
 
 export default function Catalog() {
   return (
-    <div className="catalog-container">
-      <HeaderCatalog />
-      <Carousel>
-        {cardsContent.map((card, i) => (
-          <Card
-            description={card.description}
-            price={card.price}
-            image={card.image}
-            title={card.title}
-            key={i}
-          />
-        ))}
-      </Carousel>
-      <Button title="ADD TO CART" Icon={<ShopIconComponent />} />
-    </div>
+    <>
+      <Drawer />
+      <div className="catalog-container" id="main">
+        <HeaderCatalog />
+        <Carousel>
+          {cardsContent.map((card, i) => (
+            <Card
+              description={card.description}
+              price={card.price}
+              image={card.image}
+              title={card.title}
+              key={i}
+            />
+          ))}
+        </Carousel>
+        <Button title="ADD TO CART" Icon={<ShopIconComponent />} />
+      </div>
+    </>
   );
 }

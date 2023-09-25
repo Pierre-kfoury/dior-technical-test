@@ -1,6 +1,7 @@
 /* Common styles */
 .filter-button,
 .dropdown-list {
+  z-index: 10;
   color: #000;
   font-family: Inter;
   font-size: 14px;

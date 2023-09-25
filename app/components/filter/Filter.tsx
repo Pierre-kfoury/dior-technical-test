@@ -3,10 +3,10 @@ import { JewelryIcon } from "@/app/icons/JewelryIcon";
 import { MenIcon } from "@/app/icons/MenIcon";
 import { ShirtsIcon } from "@/app/icons/ShirtsIcon";
 import { WomenIcon } from "@/app/icons/WomenIcon";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { SortIcon } from "@/app/icons/sortIcon";
-import { useOutsideClick } from "@/app/hooks/useClickOutside";
+import { useOnClickOutside } from "usehooks-ts";
 
 type Props = {
   sort?: boolean;
@@ -14,14 +14,19 @@ type Props = {
 
 export function Filter({ sort }: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => {
+    console.log("clicked outside");
+    return setIsDropdownOpen(false);
+  });
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-    console.log("toggleDropdown");
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" ref={ref}>
       {sort ? (
         <SortIcon />
       ) : (
