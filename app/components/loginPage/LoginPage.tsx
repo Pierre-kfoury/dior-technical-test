@@ -6,8 +6,31 @@ import { Input } from "../input/Input";
 import Image from "next/image";
 import { useMediaQuerrySSR } from "@/app/hooks/useMediaQuerrySSR";
 
+import { gql, useQuery } from "@apollo/client";
+
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+
+loadDevMessages();
+loadErrorMessages();
+
+const query = gql`
+  query User {
+    user(userId: 1234) {
+      userId
+      password
+      firstName
+      lastName
+      email
+    }
+  }
+`;
+
 export function LoginPage() {
   const { mediaQuery, mounted } = useMediaQuerrySSR();
+
+  const { loading, error, data } = useQuery(query);
+  console.log("data", data);
+
   const image =
     mediaQuery === "mobile" ? "/eiffel-tower-S.png" : "/eiffel-tower-L.png";
 
