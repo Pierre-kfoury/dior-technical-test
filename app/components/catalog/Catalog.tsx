@@ -5,45 +5,41 @@ import { ShopIconComponent } from "@/app/icons/ShopIcon";
 import { Carousel } from "../carousel/Carousel";
 import { Card, CardProps } from "../card/Card";
 import { Drawer } from "../drawer/Drawer";
+import { gql, useQuery } from "@apollo/client";
+import { Item } from "@/pages/api/graphql";
 
-const cardsContent: CardProps[] = [
-  {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price: "19 000",
-    image: "/man-standing.png",
-    title: "MEN SHIRT",
-  },
-  {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price: "3000",
-    image: "/woman-standing.png",
-    title: "LADY BAG",
-  },
-  {
-    description:
-      "Lorem ipsum lolo sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price: "100 000",
-    image: "/woman2-standing.png",
-    title: "DIOR JEWELRY",
-  },
-];
+const GET_ITEMS = gql`
+  query User {
+    items {
+      itemId
+      itemName
+      itemDescription
+      itemPrice
+      image
+    }
+  }
+`;
 
 export default function Catalog() {
+  const { loading, error, data } = useQuery(GET_ITEMS);
+
+  console.log(data);
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <>
       <Drawer />
       <div className="catalog-container" id="main">
         <HeaderCatalog />
         <Carousel>
-          {cardsContent.map((card, i) => (
+          {(data.items as Item[]).map((card, i) => (
             <Card
-              description={card.description}
-              price={card.price}
-              image={card.image}
-              title={card.title}
-              key={i}
+              description={card.itemDescription as string}
+              price={card.itemPrice}
+              image={card.image as string}
+              title={card.itemName as string}
+              key={card.itemId}
             />
           ))}
         </Carousel>

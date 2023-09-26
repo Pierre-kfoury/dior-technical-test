@@ -5,24 +5,29 @@
 }
 
 .input {
-  outline:none;
+  outline: none;
 
   width: 230px;
   margin-top: 30px;
   border: none;
-  border-bottom: 1px solid #AFAFAF;
+  border-bottom: 1px solid #afafaf;
   padding-bottom: 10px;
   font-size: 16px;
 }
 
 .input-container::placeholder {
   color: #767676;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 input.middle:focus {
   outline-width: 0;
+}
+
+.input-error::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
 }

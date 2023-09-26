@@ -1,14 +1,11 @@
 type Props = {
   title: string;
+  onClick?: () => void;
 };
 
-export function LoginButton({ title }: Props) {
-  function handleClick() {
-    window.location.href = "/catalog";
-  }
-
+export function LoginButton({ title, onClick }: Props) {
   return (
-    <button onClick={handleClick} className="Login-Button">
+    <button onClick={onClick} className="Login-Button">
       {title}
     </button>
   );

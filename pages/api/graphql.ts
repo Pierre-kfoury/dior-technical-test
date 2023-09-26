@@ -2,54 +2,79 @@ import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { gql } from "graphql-tag";
 
-type Item = {
+type itemType = "shirt" | "jewelry" | "bag";
+type itemGender = "male" | "female";
+
+export type Item = {
   itemId: number;
   itemName: string;
   itemDescription?: string;
-  itemPrice: number;
-  image?: string;
+  itemPrice: string;
+  image: string;
+  gender: itemGender;
+  type: itemType;
 };
 
 type User = {
-  userId: number;
+  userName: string;
   password?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
 };
 
 const typeDefs = gql`
   type Query {
-    user(userId: Int): User
-    items: [Item]
-    item(itemId: Int): Item
+    user(userName: String, password: String): User
+    items(sortOrder: String, gender: String, type: String): [Item]
   }
 
   type User {
-    userId: Int
+    userName: String
     password: String
-    firstName: String
-    lastName: String
-    email: String
   }
 
   type Item {
     itemId: Int
     itemName: String
     itemDescription: String
-    itemPrice: Float
+    itemPrice: String
     image: String
+    gender: String
+    type: String
   }
 `;
 
 const resolvers = {
   Query: {
-    user(_parent: any, { userId }: any, context: any, info: any) {
-      return users.find((user) => user.userId === userId);
+    user(_parent: any, { userName, password }: any) {
+      console.log("userName", userName);
+      console.log("password", password);
+
+      const user = users.find((user) => user.userName === userName);
+      if (!user) {
+        throw new Error(`No user found with userName: ${userName}`);
+      }
+      if (user.password !== password) {
+        throw new Error("Incorrect password");
+      }
+      return user;
     },
-    items: () => items, // Resolver for the 'items' query
-    item: (_parent: any, { itemId }: any, context: any, info: any) => {
-      return items.find((item) => item.itemId === itemId);
+    items: (_parent: any, { sortOrder, gender, type }: any) => {
+      let filteredItems = [...items];
+
+      if (gender) {
+        filteredItems = filteredItems.filter((item) => item.gender === gender);
+      }
+
+      if (type) {
+        filteredItems = filteredItems.filter((item) => item.type === type);
+      }
+
+      if (sortOrder === "ASC") {
+        filteredItems.sort((a, b) => a.itemName.localeCompare(b.itemName));
+      } else if (sortOrder === "DESC") {
+        filteredItems.sort((a, b) => b.itemName.localeCompare(a.itemName));
+      }
+
+      return filteredItems;
     },
   },
 };
@@ -63,17 +88,12 @@ export default startServerAndCreateNextHandler(apolloServer);
 
 const users: User[] = [
   {
-    userId: 1234,
+    userName: "toto",
     password: "password",
-    firstName: "John",
-    lastName: "Smith",
-    email: "johnsmith@example.com",
   },
   {
-    userId: 1235,
-    firstName: "Jane",
-    lastName: "Doe",
-    email: "janedoe@example.com",
+    userName: "tata",
+    password: "password",
   },
 ];
 
@@ -81,24 +101,30 @@ const items: Item[] = [
   {
     itemId: 1,
     itemName: "MEN SHIRT",
-    itemPrice: 19000,
+    itemPrice: "19000",
     itemDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/man-standing.png",
+    type: "shirt",
+    gender: "male",
   },
   {
     itemId: 2,
     itemName: "LADY BAG",
-    itemPrice: 3000,
+    itemPrice: "3000",
     image: "/woman-standing.png",
+    gender: "female",
+    type: "bag",
     itemDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     itemId: 3,
     itemName: "DIOR JEWELRY",
-    itemPrice: 100000,
+    itemPrice: "100000",
     image: "/woman2-standing.png",
+    gender: "female",
+    type: "jewelry",
     itemDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
