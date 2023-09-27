@@ -3,27 +3,36 @@ import { HeaderTitle } from "../headerTitle/HeaderTitle";
 import { Filter } from "../filter/Filter";
 import { BasketIcon } from "@/app/icons/BasketIcon";
 import { useMediaQuerrySSR } from "@/app/hooks/useMediaQuerrySSR";
+import { useEffect } from "react";
 
 export function HeaderCatalog() {
   const { mediaQuery, mounted } = useMediaQuerrySSR();
 
   function handleOpenDrawer() {
+    document.getElementById("main")!.style.filter = "blur(20px)";
+    document.getElementById("main")!.style.backgroundColor = "#000000b8";
+
+    setTimeout(() => {
+      const element = document.getElementById("mySidenav");
+      element!.style.visibility = "visible";
+      element!.style.opacity = "1";
+    }, 200);
+  }
+
+  useEffect(() => {
     const element = document.getElementById("mySidenav");
     if (element) {
       if (mediaQuery === "desktop") {
         element.style.width = "40%";
       }
       if (mediaQuery === "tablet") {
-        element.style.width = "50%";
+        element.style.width = "60%";
       }
       if (mediaQuery === "mobile") {
         element.style.width = "100%";
       }
-
-      document.getElementById("main")!.style.filter = "blur(20px)";
-      document.getElementById("main")!.style.backgroundColor = "#000000b8";
     }
-  }
+  }, [mediaQuery, mounted]);
 
   return (
     <>

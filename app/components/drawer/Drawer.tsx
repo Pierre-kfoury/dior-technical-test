@@ -14,7 +14,8 @@ export function Drawer() {
   const handleCloseDrawer = () => {
     const mySidenav = document.getElementById("mySidenav");
     if (mySidenav) {
-      (mySidenav as HTMLElement).style.width = "0";
+      (mySidenav as HTMLElement).style.visibility = "hidden";
+      (mySidenav as HTMLElement).style.opacity = "0";
       document.getElementById("main")!.style.filter = "blur(0px)";
       document.getElementById("main")!.style.filter = "grayscale(0%)";
       document.getElementById("main")!.style.backgroundColor = "transparent";

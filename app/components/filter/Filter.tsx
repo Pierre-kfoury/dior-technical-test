@@ -17,7 +17,6 @@ export function Filter({ sort }: Props) {
   const ref = useRef(null);
 
   useOnClickOutside(ref, () => {
-    console.log("clicked outside");
     return setIsDropdownOpen(false);
   });
 

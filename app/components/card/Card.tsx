@@ -18,6 +18,7 @@ export function Card({ image, description, title, price }: CardProps) {
           width={654}
           height={641}
           alt="Card"
+          id="card-image"
         />
       </div>
       <div className="card-content">
