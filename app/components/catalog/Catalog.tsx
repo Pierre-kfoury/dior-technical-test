@@ -3,7 +3,7 @@ import { Button } from "@/app/components/button/Button";
 import { HeaderCatalog } from "@/app/components/headerCatalog/HeaderCatalog";
 import { ShopIconComponent } from "@/app/icons/ShopIcon";
 import { Carousel } from "../carousel/Carousel";
-import { Card, CardProps } from "../card/Card";
+import { Card } from "../card/Card";
 import { Drawer } from "../drawer/Drawer";
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "@/pages/api/graphql";

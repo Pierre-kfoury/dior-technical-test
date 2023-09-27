@@ -32,7 +32,13 @@ export function Filter({ sort }: Props) {
       ) : (
         <Image src={"/filterIcon.png"} width={22} height={22} alt="filter" />
       )}
-      <button onClick={toggleDropdown} className="filter-button">
+      <button
+        onClick={toggleDropdown}
+        style={{
+          borderBottom: isDropdownOpen ? "1px solid #020202" : "none",
+        }}
+        className="filter-button"
+      >
         {sort ? "SORT" : "FILTERS"}
       </button>
       {isDropdownOpen &&

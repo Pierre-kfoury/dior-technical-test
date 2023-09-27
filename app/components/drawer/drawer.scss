@@ -1,7 +1,6 @@
-/* The side navigation menu */
 .sidenav {
-  height: 100%;
   width: 0;
+  height: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -10,10 +9,12 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(13% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-/* The navigation menu links */
+.drawer-item-image {
+  margin-right: 20px;
+}
 .sidenav a {
   padding-left: 200px;
   text-decoration: none;
@@ -23,21 +24,6 @@
   transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -45,4 +31,146 @@
   .sidenav a {
     font-size: 18px;
   }
+}
+.drawer-container {
+  margin-left: 100px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.basket-and-close {
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.drawer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(
+    270deg,
+    #3c3c3c 7.52%,
+    rgba(60, 60, 60, 0) 50%
+  );
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin-bottom: 20%;
+}
+
+.drawer-item-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.drawer-trash-and-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.margin-left {
+  margin-left: 5px;
+}
+
+.margin-right {
+  margin-right: 5px;
+}
+
+.item-price {
+  margin-right: 35px;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.text-title {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.taxes-container {
+  justify-content: flex-end;
+
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+.taxes-title {
+  color: #545454;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.taxes-value {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.total-container {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.total-title {
+  color: #545454;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.total-value {
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.drawer-taxes-total-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
