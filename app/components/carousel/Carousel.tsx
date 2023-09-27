@@ -20,11 +20,13 @@ export function Carousel({ children }: CarouselProps) {
   });
 
   const goToPrevious = () => {
-    setActive((prevActive) => (prevActive - 1 + count) % count);
+    if (active === 0) return;
+    setActive((prevActive) => prevActive - 1);
   };
 
   const goToNext = () => {
-    setActive((prevActive) => (prevActive + 1) % count);
+    if (active === count - 1) return;
+    setActive((prevActive) => prevActive + 1);
   };
 
   const cardStyle = (i: number) => {
