@@ -12,11 +12,14 @@
 }
 
 .header-catalog-title {
-  margin-top: 50px; /* Add margin-top here */
   @media (min-width: 200px) and (max-width: 830px) {
     margin-top: 100px;
     width: 100%;
   }
+}
+
+.header-catalog-basket {
+  margin-left: 100px;
 }
 
 .header-catalog-filter {

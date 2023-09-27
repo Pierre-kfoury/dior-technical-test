@@ -1,14 +1,22 @@
 .carousel {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   height: 100%;
   width: 100%;
   position: relative;
-  overflow: hidden;
   @media (min-width: 200px) and (max-width: 830px) {
-    scale: 0.8;
+    overflow: hidden;
   }
+
+  @media (min-width: 834px) and (max-width: 1194px) {
+    overflow: hidden;
+  }
+}
+
+.carousel-container {
+  min-height: 641px;
+  margin: 20px;
 }
 
 .card-container {
@@ -26,7 +34,8 @@
 
   &.left {
     z-index: 2;
-    left: 20px;
+    left: 0;
+    top: 50%;
     &:hover {
       transform: scale(1.2);
       transition: all 0.4s ease-out;
@@ -36,7 +45,9 @@
 
   &.right {
     z-index: 2;
-    right: 20px;
+    right: 0;
+    top: 50%;
+
     &:hover {
       transform: scale(1.2);
       transition: all 0.4s ease-out;

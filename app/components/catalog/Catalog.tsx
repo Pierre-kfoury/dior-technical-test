@@ -32,17 +32,19 @@ export default function Catalog() {
       <Drawer />
       <div className="catalog-container" id="main">
         <HeaderCatalog />
-        <Carousel>
-          {(data.items as Item[]).map((card, i) => (
-            <Card
-              description={card.itemDescription as string}
-              price={card.itemPrice}
-              image={card.image as string}
-              title={card.itemName as string}
-              key={card.itemId}
-            />
-          ))}
-        </Carousel>
+        <div className="carousel-container">
+          <Carousel>
+            {(data.items as Item[]).map((card, i) => (
+              <Card
+                description={card.itemDescription as string}
+                price={card.itemPrice}
+                image={card.image as string}
+                title={card.itemName as string}
+                key={card.itemId}
+              />
+            ))}
+          </Carousel>
+        </div>
         <Button title="ADD TO CART" Icon={<ShopIconComponent />} />
       </div>
     </>
