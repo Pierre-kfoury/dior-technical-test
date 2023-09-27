@@ -14,11 +14,16 @@ export function Drawer() {
   const handleCloseDrawer = () => {
     const mySidenav = document.getElementById("mySidenav");
     if (mySidenav) {
-      (mySidenav as HTMLElement).style.visibility = "hidden";
-      (mySidenav as HTMLElement).style.opacity = "0";
+      document.getElementById("mySidenav")!.style.transform =
+        "translate(100%, 0px)";
       document.getElementById("main")!.style.filter = "blur(0px)";
-      document.getElementById("main")!.style.filter = "grayscale(0%)";
+      document.getElementById("main")!.style.opacity = "1";
       document.getElementById("main")!.style.backgroundColor = "transparent";
+
+      document.getElementById("carousel-container")!.style.filter = "blur(0px)";
+      document.getElementById("carousel-container")!.style.opacity = "1";
+      document.getElementById("carousel-container")!.style.backgroundColor =
+        "white";
     }
   };
 
@@ -55,7 +60,7 @@ export function Drawer() {
         <div className="drawer-taxes-total-container">
           <div className="taxes-container">
             <div className="taxes-title">Taxes</div>
-            <div className="taxes-value">Total 19 000 €</div>
+            <div className="taxes-value"> 3 166.67 €</div>
           </div>
           <div className="total-container">
             <div className="total-title">Total</div>

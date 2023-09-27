@@ -32,7 +32,7 @@ export default function Catalog() {
       <Drawer />
       <div className="catalog-container" id="main">
         <HeaderCatalog />
-        <div className="carousel-container">
+        <div className="carousel-container" id="carousel-container">
           <Carousel>
             {(data.items as Item[]).map((card, i) => (
               <Card

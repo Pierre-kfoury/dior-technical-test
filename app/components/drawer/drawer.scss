@@ -1,8 +1,8 @@
 .sidenav {
   visibility: hidden;
   opacity: 0;
-  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Transition width and opacity */
-  transform: translate(100px, 0px);
+  transform: translate(100%, 0);
+  transition: transform 0.5s ease;
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -94,6 +94,10 @@
 
 .margin-right {
   margin-right: 5px;
+}
+
+.close-button {
+  cursor: pointer;
 }
 
 .item-price {

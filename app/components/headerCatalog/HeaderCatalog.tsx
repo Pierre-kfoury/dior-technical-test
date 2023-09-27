@@ -10,10 +10,19 @@ export function HeaderCatalog() {
 
   function handleOpenDrawer() {
     document.getElementById("main")!.style.filter = "blur(20px)";
-    document.getElementById("main")!.style.backgroundColor = "#000000b8";
+
+    document.getElementById("main")!.style.backgroundColor = "black";
+    document.getElementById("main")!.style.opacity = "0.7";
+    document.getElementById("main")!.style.filter = "blur(20px)";
+
+    const image = document.getElementById("carousel-container");
+    image!.style.filter = "blur(20px)";
+    image!.style.opacity = "0.7";
+    image!.style.backgroundColor = "black";
 
     setTimeout(() => {
       const element = document.getElementById("mySidenav");
+      element!.style.transform = "translate(0px, 0px)";
       element!.style.visibility = "visible";
       element!.style.opacity = "1";
     }, 200);
