@@ -45,9 +45,6 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     user(_parent: any, { userName, password }: any) {
-      console.log("userName", userName);
-      console.log("password", password);
-
       const user = users.find((user) => user.userName === userName);
       if (!user) {
         throw new Error(`No user found with userName: ${userName}`);

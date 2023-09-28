@@ -23,8 +23,6 @@ const GET_ITEMS = gql`
 export default function Catalog() {
   const { loading, data } = useQuery(GET_ITEMS);
 
-  console.log(data);
-
   if (loading) return <p>Loading...</p>;
 
   return (
