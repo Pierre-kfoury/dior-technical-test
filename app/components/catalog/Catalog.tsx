@@ -21,7 +21,7 @@ const GET_ITEMS = gql`
 `;
 
 export default function Catalog() {
-  const { loading, error, data } = useQuery(GET_ITEMS);
+  const { loading, data } = useQuery(GET_ITEMS);
 
   console.log(data);
 
@@ -34,7 +34,7 @@ export default function Catalog() {
         <HeaderCatalog />
         <div className="carousel-container" id="carousel-container">
           <Carousel>
-            {(data.items as Item[]).map((card, i) => (
+            {(data.items as Item[]).map((card) => (
               <Card
                 description={card.itemDescription as string}
                 price={card.itemPrice}

@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { SortIcon } from "@/app/icons/sortIcon";
 import { useOnClickOutside } from "usehooks-ts";
+import { TopIcon } from "@/app/icons/topIcon";
 
 type Props = {
   sort?: boolean;
@@ -25,7 +26,7 @@ export function Filter({ sort }: Props) {
   };
 
   return (
-    <div className="dropdown" ref={ref}>
+    <div ref={ref}>
       {sort ? (
         <SortIcon />
       ) : (
@@ -40,40 +41,53 @@ export function Filter({ sort }: Props) {
       >
         {sort ? "SORT" : "FILTERS"}
       </button>
+
       {isDropdownOpen &&
         (!sort ? (
           <div className="filter-box">
-            <ul className="dropdown-list">
-              <li>
-                <WomenIcon />
-                WOMEN
-              </li>
-              <li>
-                <MenIcon />
-                MEN
-              </li>
-            </ul>
-            <ul className="dropdown-list">
-              <li>
-                <ShirtsIcon />
-                SHIRTS
-              </li>
-              <li>
-                <BagsIcon />
-                BAGS
-              </li>
-              <li>
-                <JewelryIcon />
-                JEWELRY
-              </li>
-            </ul>
+            <div className="container-filter">
+              <div className="top-icon">
+                <TopIcon />
+              </div>
+              <div className="container-filter-dropdown">
+                <ul className="dropdown-list">
+                  <li>
+                    <WomenIcon />
+                    WOMEN
+                  </li>
+                  <li>
+                    <MenIcon />
+                    MEN
+                  </li>
+                </ul>
+                <ul className="dropdown-list">
+                  <li>
+                    <ShirtsIcon />
+                    SHIRTS
+                  </li>
+                  <li>
+                    <BagsIcon />
+                    BAGS
+                  </li>
+                  <li>
+                    <JewelryIcon />
+                    JEWELRY
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="filter-box">
-            <ul className="dropdown-list">
-              <li>BY PRICE ASC</li>
-              <li>BY PRICE DESC</li>
-            </ul>
+            <div className="container-filter">
+              <div className="top-icon">
+                <TopIcon />
+              </div>
+              <ul className="dropdown-list">
+                <li>BY PRICE ASC</li>
+                <li>BY PRICE DESC</li>
+              </ul>
+            </div>
           </div>
         ))}
     </div>

@@ -9,23 +9,23 @@ import { Button } from "../button/Button";
 export function Drawer() {
   const ref = useRef(null);
 
-  useOnClickOutside(ref, () => handleCloseDrawer());
-
   const handleCloseDrawer = () => {
     const mySidenav = document.getElementById("mySidenav");
     if (mySidenav) {
-      document.getElementById("mySidenav")!.style.transform =
-        "translate(100%, 0px)";
-      document.getElementById("main")!.style.filter = "blur(0px)";
-      document.getElementById("main")!.style.opacity = "1";
-      document.getElementById("main")!.style.backgroundColor = "transparent";
+      const main = document.getElementById("main");
+      const carouselContainer = document.getElementById("carousel-container");
 
-      document.getElementById("carousel-container")!.style.filter = "blur(0px)";
-      document.getElementById("carousel-container")!.style.opacity = "1";
-      document.getElementById("carousel-container")!.style.backgroundColor =
-        "white";
+      mySidenav.style.transform = "translate(100%, 0px)";
+      main!.style.filter = "blur(0px)";
+      main!.style.opacity = "1";
+      main!.style.backgroundColor = "transparent";
+
+      carouselContainer!.style.filter = "blur(0px)";
+      carouselContainer!.style.opacity = "1";
+      carouselContainer!.style.backgroundColor = "white";
     }
   };
+  useOnClickOutside(ref, handleCloseDrawer);
 
   return (
     <div id="mySidenav" className="sidenav" ref={ref}>

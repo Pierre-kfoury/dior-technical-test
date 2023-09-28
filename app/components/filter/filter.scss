@@ -7,11 +7,20 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  position: relative;
+}
+
+.container-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-icon {
+  padding-left: 20px;
 }
 
 .filter-button {
   margin-left: 5px;
-
   font-size: 20px;
   border: none;
 
@@ -32,6 +41,10 @@
   background: #fbfbfb;
   padding: 20px;
   z-index: 10;
+}
+
+.container-filter-dropdown {
+  display: flex;
 }
 
 .dropdown-list {

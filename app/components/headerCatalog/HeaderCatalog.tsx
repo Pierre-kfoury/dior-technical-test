@@ -3,45 +3,47 @@ import { HeaderTitle } from "../headerTitle/HeaderTitle";
 import { Filter } from "../filter/Filter";
 import { BasketIcon } from "@/app/icons/BasketIcon";
 import { useMediaQuerrySSR } from "@/app/hooks/useMediaQuerrySSR";
-import { useEffect } from "react";
 
 export function HeaderCatalog() {
-  const { mediaQuery, mounted } = useMediaQuerrySSR();
+  const { mediaQuery } = useMediaQuerrySSR();
 
   function handleOpenDrawer() {
-    document.getElementById("main")!.style.filter = "blur(20px)";
-
-    document.getElementById("main")!.style.backgroundColor = "black";
-    document.getElementById("main")!.style.opacity = "0.7";
-    document.getElementById("main")!.style.filter = "blur(20px)";
-
+    const main = document.getElementById("main");
     const image = document.getElementById("carousel-container");
-    image!.style.filter = "blur(20px)";
-    image!.style.opacity = "0.7";
-    image!.style.backgroundColor = "black";
-
-    setTimeout(() => {
-      const element = document.getElementById("mySidenav");
-      element!.style.transform = "translate(0px, 0px)";
-      element!.style.visibility = "visible";
-      element!.style.opacity = "1";
-    }, 200);
-  }
-
-  useEffect(() => {
     const element = document.getElementById("mySidenav");
-    if (element) {
-      if (mediaQuery === "desktop") {
-        element.style.width = "40%";
-      }
-      if (mediaQuery === "tablet") {
-        element.style.width = "60%";
-      }
-      if (mediaQuery === "mobile") {
-        element.style.width = "100%";
-      }
+
+    const mediaQueryWidths = {
+      desktop: "40%",
+      tablet: "70%",
+      mobile: "100%",
+    };
+
+    if (element && mediaQueryWidths[mediaQuery]) {
+      element.style.width = mediaQueryWidths[mediaQuery];
     }
-  }, [mediaQuery, mounted]);
+
+    const commonStyles = {
+      filter: "blur(10px)",
+      backgroundColor: "black",
+      opacity: "0.7",
+    };
+
+    if (main) {
+      Object.assign(main.style, commonStyles);
+    }
+
+    if (image) {
+      Object.assign(image.style, commonStyles);
+    }
+
+    if (element) {
+      setTimeout(() => {
+        element.style.transform = "translate(0px, 0px)";
+        element.style.visibility = "visible";
+        element.style.opacity = "1";
+      }, 200);
+    }
+  }
 
   return (
     <>

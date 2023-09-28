@@ -88,11 +88,11 @@ export default startServerAndCreateNextHandler(apolloServer);
 
 const users: User[] = [
   {
-    userName: "toto",
-    password: "password",
+    userName: "test",
+    password: "test",
   },
   {
-    userName: "tata",
+    userName: "dior",
     password: "password",
   },
 ];
