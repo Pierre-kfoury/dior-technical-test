@@ -51,25 +51,25 @@ export function Filter({ sort }: Props) {
               </div>
               <div className="container-filter-dropdown">
                 <ul className="dropdown-list">
-                  <li>
+                  <li tabIndex={0}>
                     <WomenIcon />
                     WOMEN
                   </li>
-                  <li>
+                  <li tabIndex={1}>
                     <MenIcon />
                     MEN
                   </li>
                 </ul>
                 <ul className="dropdown-list">
-                  <li>
+                  <li tabIndex={2}>
                     <ShirtsIcon />
                     SHIRTS
                   </li>
-                  <li>
+                  <li tabIndex={3}>
                     <BagsIcon />
                     BAGS
                   </li>
-                  <li>
+                  <li tabIndex={4}>
                     <JewelryIcon />
                     JEWELRY
                   </li>
@@ -84,8 +84,8 @@ export function Filter({ sort }: Props) {
                 <TopIcon />
               </div>
               <ul className="dropdown-list">
-                <li>BY PRICE ASC</li>
-                <li>BY PRICE DESC</li>
+                <li tabIndex={0}>BY PRICE ASC</li>
+                <li tabIndex={1}>BY PRICE DESC</li>
               </ul>
             </div>
           </div>

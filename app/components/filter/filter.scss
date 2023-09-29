@@ -68,7 +68,7 @@ li:hover {
   cursor: pointer;
 }
 
-li:active {
+li:focus {
   font-weight: 600;
   text-decoration: underline;
 }
