@@ -9,27 +9,33 @@ import { gql, useQuery } from "@apollo/client";
 import { Item } from "@/pages/api/graphql";
 
 const GET_ITEMS = gql`
-  query User {
-    items {
+  query User($gender: String, $type: String, $sortOrder: String) {
+    items(type: $type, sortOrder: $sortOrder, gender: $gender) {
       itemId
       itemName
       itemDescription
       itemPrice
       image
+      gender
+      type
     }
   }
 `;
 
 export default function Catalog() {
-  const { loading, data } = useQuery(GET_ITEMS);
+  const { loading, data, refetch } = useQuery(GET_ITEMS);
 
   if (loading) return <p>Loading...</p>;
+
+  function handleClick(filter: any) {
+    refetch(filter);
+  }
 
   return (
     <>
       <Drawer />
       <div className="catalog-container" id="main">
-        <HeaderCatalog />
+        <HeaderCatalog onClick={handleClick} />
         <div className="carousel-container" id="carousel-container">
           <Carousel>
             {(data.items as Item[]).map((card) => (

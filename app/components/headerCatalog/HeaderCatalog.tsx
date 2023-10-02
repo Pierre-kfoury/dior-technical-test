@@ -4,7 +4,11 @@ import { Filter } from "../filter/Filter";
 import { BasketIcon } from "@/app/icons/BasketIcon";
 import { useMediaQuerrySSR } from "@/app/hooks/useMediaQuerrySSR";
 
-export function HeaderCatalog() {
+type Props = {
+  onClick: (filter: any) => void;
+};
+
+export function HeaderCatalog({ onClick }: Props) {
   const { mediaQuery } = useMediaQuerrySSR();
 
   function handleOpenDrawer() {
@@ -60,10 +64,10 @@ export function HeaderCatalog() {
       </div>
       <div className="header-catalog-filter-container">
         <div className="header-catalog-filter">
-          <Filter />
+          <Filter onClickFilter={onClick} />
         </div>
         <div className="header-catalog-filter-sort">
-          <Filter sort />
+          <Filter onClickFilter={onClick} sort />
         </div>
       </div>
     </>
