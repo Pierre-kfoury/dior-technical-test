@@ -71,6 +71,8 @@ const resolvers = {
         filteredItems.sort((a, b) => b.itemName.localeCompare(a.itemName));
       }
 
+      console.log("filtered", filteredItems);
+
       return filteredItems;
     },
   },

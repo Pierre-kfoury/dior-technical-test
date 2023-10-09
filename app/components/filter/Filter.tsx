@@ -8,12 +8,14 @@ import Image from "next/image";
 import { SortIcon } from "@/app/icons/sortIcon";
 import { useOnClickOutside } from "usehooks-ts";
 import { TopIcon } from "@/app/icons/topIcon";
+import { gql } from "@apollo/client";
 
 type Props = {
   sort?: boolean;
+  onClickFilter: (filter: any) => void;
 };
 
-export function Filter({ sort }: Props) {
+export function Filter({ sort, onClickFilter }: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const ref = useRef(null);
 
@@ -51,11 +53,25 @@ export function Filter({ sort }: Props) {
               </div>
               <div className="container-filter-dropdown">
                 <ul className="dropdown-list">
-                  <li tabIndex={0}>
+                  <li
+                    tabIndex={0}
+                    onClick={() =>
+                      onClickFilter({
+                        gender: "female",
+                      })
+                    }
+                  >
                     <WomenIcon />
                     WOMEN
                   </li>
-                  <li tabIndex={1}>
+                  <li
+                    tabIndex={1}
+                    onClick={() =>
+                      onClickFilter({
+                        gender: "male",
+                      })
+                    }
+                  >
                     <MenIcon />
                     MEN
                   </li>
